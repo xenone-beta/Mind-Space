@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mind Space</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <h1>
+          <span class="brand-mark" aria-hidden="true"></span>
+          Mind Space
+        </h1>
+        <p>Локальный дневник эмоций</p>
+      </header>
+
+      <nav class="tabs" aria-label="Разделы приложения">
+        <button class="tab-btn active" data-tab="entry">Ввод</button>
+        <button class="tab-btn" data-tab="history">История</button>
+        <button class="tab-btn" data-tab="analytics">Аналитика</button>
+        <button class="tab-btn" data-tab="settings">Настройки</button>
+      </nav>
+
+      <main>
+        <section id="entry" class="tab-panel active">
+          <h2>Новая запись</h2>
+          <form id="entryForm" class="card">
+            <div class="field-group">
+              <label>Состояние</label>
+              <div id="moodOptions" class="mood-grid"></div>
+            </div>
+
+            <div class="field-group">
+              <label for="intensity">Интенсивность: <span id="intensityValue">5</span></label>
+              <input id="intensity" name="intensity" type="range" min="1" max="10" value="5" />
+            </div>
+
+            <div class="field-group">
+              <label for="note">Что случилось? (необязательно)</label>
+              <textarea id="note" name="note" rows="3" placeholder="Короткая заметка..."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label>Теги</label>
+              <div id="tagOptions" class="tag-grid"></div>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="primary">Сохранить</button>
+              <button type="button" id="cancelEdit" class="ghost hidden">Отмена редактирования</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="history" class="tab-panel">
+          <h2>История</h2>
+          <div id="historyList" class="stack"></div>
+        </section>
+
+        <section id="analytics" class="tab-panel">
+          <h2>Аналитика</h2>
+          <div class="card">
+            <div class="analytics-header">
+              <h3>Календарь настроения</h3>
+              <p>Последние 90 дней</p>
+            </div>
+            <div id="heatmap" class="heatmap" aria-label="Календарь настроения"></div>
+          </div>
+
+          <div class="card">
+            <div class="analytics-header">
+              <h3>График настроения</h3>
+              <label for="periodSelect">Период:</label>
+              <select id="periodSelect">
+                <option value="7">7 дней</option>
+                <option value="30" selected>30 дней</option>
+              </select>
+            </div>
+            <canvas id="trendChart" width="800" height="240"></canvas>
+          </div>
+
+          <div class="card">
+            <div class="analytics-header">
+              <h3>Облако тегов</h3>
+            </div>
+            <div id="tagCloud" class="tag-cloud"></div>
+          </div>
+        </section>
+
+        <section id="settings" class="tab-panel">
+          <h2>Настройки</h2>
+          <div class="card stack">
+            <div class="settings-row">
+              <button id="exportJson" class="primary">Экспорт в JSON</button>
+              <button id="exportCsv" class="primary">Экспорт в CSV</button>
+            </div>
+            <div class="settings-row">
+              <label for="importFile" class="file-label">Импорт данных</label>
+              <input id="importFile" type="file" accept=".json,.csv" />
+            </div>
+            <div class="settings-row">
+              <button id="resetData" class="danger">Сбросить все данные</button>
+            </div>
+          </div>
+
+          <article class="card license">
+            <h3>OpenSphere License (OSL)</h3>
+            <pre id="licenseText"></pre>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <template id="historyCardTemplate">
+      <article class="entry-card">
+        <header>
+          <div class="entry-mood"></div>
+          <time class="entry-date"></time>
+        </header>
+        <p class="entry-note"></p>
+        <div class="entry-tags"></div>
+        <footer>
+          <button class="ghost edit-btn">Редактировать</button>
+          <button class="danger delete-btn">Удалить</button>
+        </footer>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
