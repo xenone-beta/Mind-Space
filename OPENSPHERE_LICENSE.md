@@ -1,6 +1,6 @@
 OpenSphere License (OSL)
 
-Copyright (c) 2026 Mind Space contributors
+Copyright (©) 2026 
 
 Разрешается бесплатно, при соблюдении условий этой лицензии:
 1. Использовать приложение для личных целей.
