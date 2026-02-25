@@ -26,7 +26,7 @@ python3 -m http.server 4173
 ## Лицензия
 
 Проект распространяется под OpenSphere License (OSL).
-См. файл [OPENSPHERE_LICENSE.txt](OPENSPHERE_LICENSE.txt).
+См. файл [OPENSPHERE_LICENSE](OPENSPHERE_LICENSE).
 =======
 READ
 
