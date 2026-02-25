@@ -1,3 +1,4 @@
+
 # Mind Space
 
 Mind Space — минималистичное локальное веб-приложение для дневника эмоций.
@@ -26,3 +27,6 @@ python3 -m http.server 4173
 
 Проект распространяется под OpenSphere License (OSL).
 См. файл [OPENSPHERE_LICENSE.txt](OPENSPHERE_LICENSE.txt).
+=======
+READ
+
